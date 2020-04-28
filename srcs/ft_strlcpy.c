@@ -1,36 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/28 13:24:27 by asimoes           #+#    #+#             */
-/*   Updated: 2020/04/28 22:46:45 by asimoes          ###   ########.fr       */
+/*   Created: 2020/04/28 22:57:55 by asimoes           #+#    #+#             */
+/*   Updated: 2020/04/28 23:06:36 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(const char *nptr)
+#include "libft.h"
+
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	unsigned int	i;
-	int				number;
-	int				sign;
+	size_t	i;
+	size_t	srclen;
 
 	i = 0;
-	number = 0;
-	sign = 1;
-	while (nptr[i] != '+' && nptr[i] != '-' && (nptr[i] < '0' || nptr[i] > '9'))
-		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
+	srclen = 0;
+	while (src[srclen])
+		srclen++;
+	if (size != 0)
 	{
-		if (nptr[i] == '-')
-			sign = -1;
-		i++;
+		while (i < (size - 1) && i < srclen)
+		{
+			dest[i] = src[i];
+			i++;
+		}
+		dest[i] = '\0';
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		number = number * 10 + nptr[i] - '0';
-		i++;
-	}
-	return (number * sign);
+	return (srclen);
 }
