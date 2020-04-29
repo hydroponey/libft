@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 00:45:33 by asimoes           #+#    #+#             */
-/*   Updated: 2020/04/29 00:45:53 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/04/29 04:04:33 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_putstr_fd(char *s, int fd)
 {
 	if (s == NULL)
-		return;
+		return ;
 	while (*s)
 		write(fd, s++, 1);
 }
