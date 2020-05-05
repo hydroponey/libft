@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 14:41:48 by asimoes           #+#    #+#             */
-/*   Updated: 2020/04/27 17:00:47 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/05 18:07:33 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,7 @@
 
 void	*ft_memset(char *s, int c, size_t n)
 {
-	unsigned int i;
-
-	i = 0;
-	while (i < n)
-	{
-		s[i] = c;
-		i++;
-	}
+	while (n--)
+		s[n] = c;
 	return (s);
 }
