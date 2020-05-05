@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 22:18:15 by asimoes           #+#    #+#             */
-/*   Updated: 2020/04/29 20:04:32 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/02 23:48:15 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,10 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	unsigned char	*data;
-	size_t			i;
+	char		*data;
 
 	if (!(data = malloc(nmemb * size)))
 		return (0);
-	i = 0;
-	while (i < size)
-	{
-		data[i] = 0;
-		i++;
-	}
+	ft_memset(data, 0, (nmemb * size));
 	return (data);
 }
