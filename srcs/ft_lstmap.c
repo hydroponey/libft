@@ -6,13 +6,8 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 22:20:33 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/04 22:21:24 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/05 17:21:29 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-t_list			*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
-{
-
-}
