@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 00:05:52 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/06 23:38:34 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/06 23:43:45 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,5 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 		free(cur);
 		cur = next;
 	}
+	lst = NULL;
 }
