@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 16:21:10 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/04 22:16:55 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/06 16:44:13 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,33 @@ unsigned short	is_in_set(char const c, char const *set)
 	return (0);
 }
 
+unsigned int	get_trimmed_len(char const *s1, char const *set)
+{
+	unsigned int	len;
+	unsigned int	i;
+
+	len = 0;
+	i = 0;
+	while (s1[i])
+	{
+		if (is_in_set(s1[i], set))
+			i++;
+		else
+			break ;
+	}
+	while (s1[i])
+	{
+		len++;
+		i++;
+	}
+	while (i > 0 && is_in_set(s1[i - 1], set))
+	{
+		len--;
+		i--;
+	}
+	return (len);
+}
+
 char			*ft_strtrim(char const *s1, char const *set)
 {
 	char			*trimmed;
@@ -36,7 +63,7 @@ char			*ft_strtrim(char const *s1, char const *set)
 	i = 0;
 	if (!s1 || s1[0] == '\0' || !set || set[0] == '\0')
 		return (char*)(s1);
-	if (!(trimmed = malloc(sizeof(char) * (ft_strlen(s1) + 1))))
+	if (!(trimmed = malloc(sizeof(char) * (get_trimmed_len(s1, set) + 1))))
 		return (NULL);
 	while (s1[j])
 	{
