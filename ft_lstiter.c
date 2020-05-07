@@ -6,13 +6,13 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 22:25:08 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/06 23:38:38 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/07 21:12:18 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void			ft_lstiter(t_list *lst, void (*f)(void *))
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	t_list *cur;
 

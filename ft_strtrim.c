@@ -6,13 +6,13 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 16:21:10 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/06 16:44:13 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/07 21:09:49 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-unsigned short	is_in_set(char const c, char const *set)
+static unsigned short	is_in_set(char const c, char const *set)
 {
 	unsigned int	i;
 
@@ -26,7 +26,7 @@ unsigned short	is_in_set(char const c, char const *set)
 	return (0);
 }
 
-unsigned int	get_trimmed_len(char const *s1, char const *set)
+static unsigned int		get_trimmed_len(char const *s1, char const *set)
 {
 	unsigned int	len;
 	unsigned int	i;
@@ -53,7 +53,7 @@ unsigned int	get_trimmed_len(char const *s1, char const *set)
 	return (len);
 }
 
-char			*ft_strtrim(char const *s1, char const *set)
+char					*ft_strtrim(char const *s1, char const *set)
 {
 	char			*trimmed;
 	unsigned int	j;

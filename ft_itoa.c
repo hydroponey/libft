@@ -6,13 +6,13 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/03 16:18:24 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/04 22:12:17 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/07 21:12:44 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	leftcat(char *s, char c)
+static void		leftcat(char *s, char c)
 {
 	int	len;
 
@@ -25,7 +25,7 @@ void	leftcat(char *s, char c)
 	s[0] = c;
 }
 
-char	*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
 	char	*nbr;
 	long	long_nb;
