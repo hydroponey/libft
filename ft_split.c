@@ -6,13 +6,13 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/07 20:17:16 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/07 20:17:41 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/07 21:06:42 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strndup(char *str, unsigned int n)
+static char		*ft_strndup(char *str, unsigned int n)
 {
 	unsigned int	len;
 	unsigned int	max;
@@ -33,7 +33,7 @@ char	*ft_strndup(char *str, unsigned int n)
 	return (copy);
 }
 
-int		get_string_size(const char *str, char c)
+static int		get_string_size(const char *str, char c)
 {
 	int i;
 
@@ -43,7 +43,7 @@ int		get_string_size(const char *str, char c)
 	return (i);
 }
 
-int		get_elem_count(const char *str, char c)
+static int		get_elem_count(const char *str, char c)
 {
 	int	i;
 	int	count;
@@ -70,7 +70,7 @@ int		get_elem_count(const char *str, char c)
 	return (count);
 }
 
-char	**ft_split(const char *str, char c)
+char			**ft_split(const char *str, char c)
 {
 	char	**tab;
 	int		i;
