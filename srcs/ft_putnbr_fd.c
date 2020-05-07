@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 15:28:13 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/07 03:19:55 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/07 20:13:51 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_putnbr_fd(int n, int fd)
 	{
 		ft_putstr_fd("-2147483648", fd);
 		return ;
-	}	
+	}
 	if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
