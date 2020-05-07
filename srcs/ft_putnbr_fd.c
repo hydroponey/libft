@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 15:28:13 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/04 22:13:09 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/07 03:19:55 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,19 @@
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	long	temp;
-
-	temp = n;
-	if (temp < 0)
+	if (n == -2147483648)
+	{
+		ft_putstr_fd("-2147483648", fd);
+		return ;
+	}	
+	if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
+		n = n * -1;
 	}
-	if (n % 10 > 0)
+	if (n >= 9)
 	{
-		temp = n % 10;
 		ft_putnbr_fd(n / 10, fd);
-		ft_putchar_fd((temp % 10) + '0', fd);
 	}
-	else
-	{
-		ft_putchar_fd(temp + '0', fd);
-	}
+	ft_putchar_fd((n % 10) + '0', fd);
 }
