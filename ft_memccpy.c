@@ -6,20 +6,20 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 17:41:37 by asimoes           #+#    #+#             */
-/*   Updated: 2020/04/27 21:35:06 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/07 21:17:43 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
 	unsigned int		i;
 	unsigned char		*d;
 	unsigned const char	*s;
 
 	i = 0;
-	d = dest;
+	d = dst;
 	s = src;
 	while (i < n)
 	{

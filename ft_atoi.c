@@ -6,11 +6,11 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 13:24:27 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/02 17:40:37 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/07 21:32:26 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(const char *nptr)
+int		ft_atoi(const char *str)
 {
 	unsigned int	i;
 	int				number;
@@ -19,18 +19,18 @@ int		ft_atoi(const char *nptr)
 	i = 0;
 	number = 0;
 	sign = 1;
-	while (nptr[i] == '\t' || nptr[i] == '\n' || nptr[i] == '\v'
-		|| nptr[i] == '\f' || nptr[i] == '\r' || nptr[i] == ' ')
+	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v'
+		|| str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
 		i++;
-	if (nptr[i] == '+' || nptr[i] == '-')
+	if (str[i] == '+' || str[i] == '-')
 	{
-		if (nptr[i] == '-')
+		if (str[i] == '-')
 			sign = -1;
 		i++;
 	}
-	while (nptr[i] >= '0' && nptr[i] <= '9')
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		number = number * 10 + nptr[i] - '0';
+		number = number * 10 + str[i] - '0';
 		i++;
 	}
 	return (number * sign);

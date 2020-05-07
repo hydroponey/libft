@@ -6,18 +6,18 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 14:41:48 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/05 18:24:56 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/07 21:15:57 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+void	*ft_memset(void *b, int c, size_t n)
 {
 	char *p;
 
-	p = (char *)s;
+	p = (char *)b;
 	while (n--)
 		p[n] = c;
-	return (s);
+	return (b);
 }
