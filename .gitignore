@@ -1,4 +1,4 @@
 libft.a
 libft.so
 *.o
-tests/*
+tests/*.c

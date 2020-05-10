@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/07 20:17:16 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/07 21:06:42 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/10 19:13:25 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ static char		*ft_strndup(char *str, unsigned int n)
 	unsigned int	i;
 
 	len = ft_strlen(str);
-	max = (len <= n) ? len : n;
-	if (!(copy = malloc(sizeof(char) * (max + 1))))
+	max = (len <= n) ? len : n + 1;
+	if (!(copy = malloc(sizeof(char) * max)))
 		return (NULL);
 	i = 0;
 	while (i < max)

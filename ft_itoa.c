@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/03 16:18:24 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/07 21:12:44 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/10 08:28:30 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,21 +27,21 @@ static void		leftcat(char *s, char c)
 
 char			*ft_itoa(int n)
 {
-	char	*nbr;
-	long	long_nb;
+	char			*nbr;
+	long			long_nb;
 
 	if (!(nbr = malloc(sizeof(char) * 12)))
 		return (NULL);
 	ft_memset(nbr, 0, 12);
 	long_nb = n;
-	if (long_nb < 0)
-		long_nb *= -1;
 	if (long_nb == 0)
 	{
 		nbr[0] = '0';
 		nbr[1] = '\0';
 		return (nbr);
 	}
+	if (n < 0)
+		long_nb *= -1;
 	while (long_nb > 0)
 	{
 		leftcat(nbr, (char)(long_nb % 10) + '0');

@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 17:10:07 by asimoes           #+#    #+#             */
-/*   Updated: 2020/04/27 20:17:35 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/10 07:47:23 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,5 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	unsigned char	*p;
-
-	p = (unsigned char*)s;
-	while (n--)
-		p[n] = 0;
+	ft_memset(s, 0, n);
 }
