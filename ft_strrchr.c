@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 11:53:35 by asimoes           #+#    #+#             */
-/*   Updated: 2020/04/29 04:06:17 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/10 20:19:59 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ char	*ft_strrchr(const char *s, int c)
 	last_occur = NULL;
 	while (*s != '\0')
 	{
-		if (*s == c)
+		if (*s == (char)c)
 			last_occur = (char*)s;
 		s++;
 	}
-	if (*s == c)
+	if (*s == (char)c)
 		return ((char*)s);
 	return (last_occur);
 }

@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 03:11:27 by asimoes           #+#    #+#             */
-/*   Updated: 2020/04/29 04:07:55 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/10 20:24:25 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 
 	i = 0;
-	if (s == NULL || !(sub = malloc(sizeof(char) * (len + 1))))
+	if (s == NULL || !(sub = malloc(sizeof(char) * len)))
 		return (NULL);
-	while (i < len)
+	while (i < len - 1)
 	{
 		sub[i] = s[start + i];
 		i++;
