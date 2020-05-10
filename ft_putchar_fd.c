@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 00:51:29 by asimoes           #+#    #+#             */
-/*   Updated: 2020/04/29 04:04:08 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/10 20:31:47 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-	write(fd, &c, sizeof(c));
+	write(fd, &c, 1);
 }
