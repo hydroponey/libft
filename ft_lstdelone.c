@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 00:07:05 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/07 21:12:25 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/14 00:11:18 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	if (!lst || !del)
-		return ;
-	del(lst->content);
-	free(lst);
+	if (lst != NULL && del != NULL)
+	{
+		del(lst->content);
+		free(lst);
+		lst = NULL;
+	}
 }
