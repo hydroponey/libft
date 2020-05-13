@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/07 20:17:16 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/10 19:18:04 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/13 19:41:19 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,30 +70,35 @@ static int		get_elem_count(const char *str, char c)
 	return (count);
 }
 
+static void		ft_freetab(char **tab)
+{
+	while (*tab)
+		free(*tab++);
+	free(tab);
+}
+
 char			**ft_split(const char *str, char c)
 {
 	char	**tab;
-	int		i;
 	int		j;
-	int		len;
 	int		string_len;
 
-	if (!str || str[0] == '\0')
+	if (!str || !(tab = malloc(sizeof(char *) * (get_elem_count(str, c) + 1))))
 		return (NULL);
-	if ((tab = malloc(sizeof(char *) * (get_elem_count(str, c) + 1))) == NULL)
-		return (NULL);
-	i = 0;
 	j = 0;
-	len = ft_strlen(str);
-	while (i < len)
+	while (*str != '\0')
 	{
-		if (str[i] != c)
+		if (*str != c)
 		{
-			string_len = get_string_size(&str[i], c);
-			tab[j++] = ft_strndup((char *)&str[i], string_len);
-			i += string_len;
+			string_len = get_string_size((char *)str, c);
+			if (!(tab[j++] = ft_strndup((char *)str, string_len)))
+			{
+				ft_freetab(tab);
+				return (NULL);
+			}
+			str += string_len;
 		}
-		i++;
+		str++;
 	}
 	tab[j] = NULL;
 	return (tab);
