@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 15:28:13 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/07 20:13:51 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/14 00:46:34 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putchar_fd('-', fd);
 		n = n * -1;
 	}
-	if (n >= 9)
+	if (n > 9)
 	{
 		ft_putnbr_fd(n / 10, fd);
 	}
