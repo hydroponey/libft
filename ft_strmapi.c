@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/02 23:38:49 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/07 21:10:35 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/13 19:24:30 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (!(result = malloc((len + 1) * sizeof(char))))
 		return (NULL);
 	i = 0;
-	while (i < len)
+	while (s[i] != '\0')
 	{
 		result[i] = f(i, s[i]);
 		i++;
