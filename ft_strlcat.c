@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/02 13:11:17 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/13 19:01:34 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/13 19:01:58 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,5 @@ size_t			ft_strlcat(char *dst, const char *src, size_t dstsize)
 		ft_memcpy(dst + dstlen, src, dstsize - 1);
 		dst[dstlen + dstsize - 1] = '\0';
 	}
-	return (dstlen + srclen);	
+	return (dstlen + srclen);
 }
