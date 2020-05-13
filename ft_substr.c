@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 03:11:27 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/10 20:25:35 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/14 00:24:36 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 
 	i = 0;
-	if (s == NULL || !(sub = malloc(sizeof(char) * (len + 1))))
+	if (!(sub = malloc(sizeof(char) * (len + 1))))
 		return (NULL);
 	while (i < len)
 	{
