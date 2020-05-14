@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 16:21:10 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/14 11:00:44 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/14 11:02:48 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,10 @@ char					*ft_strtrim(char const *s1, char const *set)
 	while (*s1 != '\0' && is_in_set(*s1, set))
 		s1++;
 	len = ft_strlen(s1) - 1;
+	end = NULL;
 	while (len > 0 && is_in_set(s1[len--], set))
 		end = s1 + len + 1;
-	len = (end < s1) ? 1 : end - s1 + 1;
+	len = (end == NULL || end < s1) ? 1 : end - s1 + 1;
 	if (!(trimmed = (char *)malloc(sizeof(char) * len)))
 		return (NULL);
 	ft_strlcpy(trimmed, s1, len);
