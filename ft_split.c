@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/14 04:06:50 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/14 04:57:02 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/14 04:57:42 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,6 @@ static char				*ft_strndup(const char *str, unsigned int n)
 	}
 	copy[i] = '\0';
 	return (copy);
-}
-
-static const char		*ft_strchr(const char *str, int character)
-{
-	while (*str != '\0')
-	{
-		if (*str == character)
-			return (str);
-		str++;
-	}
-	return (NULL);
 }
 
 static void				ft_freetab(char **tab)
