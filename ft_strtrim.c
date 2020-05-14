@@ -6,32 +6,11 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 16:21:10 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/14 10:37:35 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/14 10:38:16 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static char				*ft_strndup(const char *str, unsigned int n)
-{
-	unsigned int	len;
-	unsigned int	max;
-	char			*copy;
-	unsigned int	i;
-
-	len = ft_strlen(str);
-	max = (len < n) ? len : n;
-	if (!(copy = (char *)malloc(sizeof(char) * (max + 1))))
-		return (NULL);
-	i = 0;
-	while (i < max)
-	{
-		copy[i] = str[i];
-		i++;
-	}
-	copy[i] = '\0';
-	return (copy);
-}
 
 static int				is_in_set(char c, char const *set)
 {
