@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 22:20:33 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/06 23:35:59 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/14 18:14:29 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,26 +16,27 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*cur;
 	t_list	*new;
-	t_list	*start;
+	t_list	*ret;
+	void	*content;
 
-	if (!lst)
-		return (NULL);
 	new = NULL;
-	start = NULL;
-	while (lst)
+	ret = NULL;
+	if (lst != NULL && f != NULL)
 	{
-		if (!(cur = malloc(sizeof(t_list))))
-			return (NULL);
-		cur->content = f(lst->content);
-		cur->next = NULL;
-		if (new != NULL)
-			new->next = cur;
-		else
-			start = cur;
-		if (del != NULL)
-			del(lst->content);
-		new = cur;
-		lst = lst->next;
+		cur = lst;
+		while (cur)
+		{
+			if (content = f(cur->content))
+			{
+				if (!(new = ft_lstnew(content)))
+				{
+					ft_lstclear(&lst, del);
+					return (NULL);
+				}
+				ft_lstadd_back(&ret, new);
+			}
+			cur = cur->next;
+		}
 	}
-	return (start);
+	return (ret);
 }
