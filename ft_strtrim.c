@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 16:21:10 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/14 10:36:05 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/14 10:36:44 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ char					*ft_strtrim(char const *s1, char const *set)
 
 	if (!s1 || !set)
 		return (NULL);
-	while (*s1 != NULL && is_in_set(*s1, set))
+	while (*s1 != '\0' && is_in_set(*s1, set))
 		s1++;
 	len = ft_strlen(s1) - 1;
 	while (is_in_set(s1[len--], set))
