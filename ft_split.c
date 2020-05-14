@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/14 04:06:50 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/14 04:51:37 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/14 04:55:27 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,26 +77,27 @@ char					**ft_split(char const *s, char c)
 {
 	char			**tab;
 	const char		*end;
-	unsigned int	tab_count;
-	unsigned int	size;
+	unsigned int	c;
 
 	if (!(tab = malloc(sizeof(char *) * (get_elem_count(s, c) + 1))))
 		return (NULL);
-	tab_count = 0;
-	end = NULL;
+	c = 0;
 	while (*s)
 	{
 		if (*s != c)
 		{
 			end = ft_strchr(s, c);
-			size = (!end) ? ft_strlen(s) : end - s;
-			tab[tab_count++] = ft_strndup(s, size);
+			if (!(tab[c++] = ft_strndup(s, (!end) ? ft_strlen(s) : end - s)))
+			{
+				free_tab(tab);
+				return (NULL);
+			}
 			if (!end)
 				break ;
 			s = end;
 		}
 		s++;
 	}
-	tab[tab_count] = NULL;
+	tab[c] = NULL;
 	return (tab);
 }
