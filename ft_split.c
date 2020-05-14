@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/05/07 20:17:16 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/13 19:41:19 by asimoes          ###   ########.fr       */
+/*   Created: 2020/05/14 04:06:50 by asimoes           #+#    #+#             */
+/*   Updated: 2020/05/14 04:51:37 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char		*ft_strndup(char *str, unsigned int n)
+static char				*ft_strndup(const char *str, unsigned int n)
 {
 	unsigned int	len;
 	unsigned int	max;
@@ -20,8 +20,8 @@ static char		*ft_strndup(char *str, unsigned int n)
 	unsigned int	i;
 
 	len = ft_strlen(str);
-	max = (len <= n) ? len : n;
-	if (!(copy = malloc(sizeof(char) * (max + 1))))
+	max = (len < n) ? len : n;
+	if (!(copy = (char *)malloc(sizeof(char) * (max + 1))))
 		return (NULL);
 	i = 0;
 	while (i < max)
@@ -33,73 +33,70 @@ static char		*ft_strndup(char *str, unsigned int n)
 	return (copy);
 }
 
-static int		get_string_size(const char *str, char c)
+static const char		*ft_strchr(const char *str, int character)
 {
-	int i;
-
-	i = 0;
-	while (str[i] != '\0' && str[i] != c)
-		i++;
-	return (i);
-}
-
-static int		get_elem_count(const char *str, char c)
-{
-	int	i;
-	int	count;
-	int	len;
-	int	string_len;
-
-	len = ft_strlen(str);
-	i = 0;
-	string_len = 0;
-	count = 0;
-	while (str[i] && i < len)
+	while (*str != '\0')
 	{
-		string_len = get_string_size(&str[i], c);
-		if (string_len == 0)
-		{
-			i += 1;
-		}
-		else
-		{
-			i += string_len;
-			count++;
-		}
+		if (*str == character)
+			return (str);
+		str++;
 	}
-	return (count);
+	return (NULL);
 }
 
-static void		ft_freetab(char **tab)
+static void				ft_freetab(char **tab)
 {
 	while (*tab)
 		free(*tab++);
 	free(tab);
 }
 
-char			**ft_split(const char *str, char c)
+static int				get_elem_count(const char *s, char c)
 {
-	char	**tab;
-	int		j;
-	int		string_len;
+	int			count;
+	const char	*end;
 
-	if (!str || !(tab = malloc(sizeof(char *) * (get_elem_count(str, c) + 1))))
-		return (NULL);
-	j = 0;
-	while (*str != '\0')
+	count = 0;
+	end = NULL;
+	while (*s)
 	{
-		if (*str != c)
+		if (*s != c)
 		{
-			string_len = get_string_size((char *)str, c);
-			if (!(tab[j++] = ft_strndup((char *)str, string_len)))
-			{
-				ft_freetab(tab);
-				return (NULL);
-			}
-			str += string_len;
+			end = ft_strchr(s, c);
+			count++;
+			if (!end)
+				break ;
+			s = end;
 		}
-		str++;
+		s++;
 	}
-	tab[j] = NULL;
+	return (count);
+}
+
+char					**ft_split(char const *s, char c)
+{
+	char			**tab;
+	const char		*end;
+	unsigned int	tab_count;
+	unsigned int	size;
+
+	if (!(tab = malloc(sizeof(char *) * (get_elem_count(s, c) + 1))))
+		return (NULL);
+	tab_count = 0;
+	end = NULL;
+	while (*s)
+	{
+		if (*s != c)
+		{
+			end = ft_strchr(s, c);
+			size = (!end) ? ft_strlen(s) : end - s;
+			tab[tab_count++] = ft_strndup(s, size);
+			if (!end)
+				break ;
+			s = end;
+		}
+		s++;
+	}
+	tab[tab_count] = NULL;
 	return (tab);
 }
