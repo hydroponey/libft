@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 00:05:52 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/06 23:55:45 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/14 11:19:58 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	while (*lst)
 	{
 		next = (*lst)->next;
-		ft_lstdelone(*lst, del);
+		del((*lst)->content);
+		free(*lst);
 		*lst = next;
 	}
 }
