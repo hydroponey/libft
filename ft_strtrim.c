@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 16:21:10 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/14 10:53:12 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/14 11:00:44 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,6 @@ char					*ft_strtrim(char const *s1, char const *set)
 	len = (end < s1) ? 1 : end - s1 + 1;
 	if (!(trimmed = (char *)malloc(sizeof(char) * len)))
 		return (NULL);
-	ft_strlcpy(trimmed, s1, end - s1 + 1);
+	ft_strlcpy(trimmed, s1, len);
 	return (trimmed);
 }
