@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/14 04:06:50 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/14 04:56:30 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/14 04:57:02 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ char					**ft_split(char const *s, char c)
 			end = ft_strchr(s, c);
 			if (!(tab[i++] = ft_strndup(s, (!end) ? ft_strlen(s) : end - s)))
 			{
-				free_tab(tab);
+				ft_freetab(tab);
 				return (NULL);
 			}
 			if (!end)
