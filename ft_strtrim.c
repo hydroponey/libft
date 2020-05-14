@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 16:21:10 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/14 10:36:44 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/14 10:37:35 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static int				is_in_set(char c, char const *set)
 char					*ft_strtrim(char const *s1, char const *set)
 {
 	char			*trimmed;
-	char			*end;
+	const char		*end;
 	size_t			len;
 
 	if (!s1 || !set)
