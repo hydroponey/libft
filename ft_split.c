@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/14 04:06:50 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/14 04:57:42 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/14 04:58:45 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ char					**ft_split(char const *s, char c)
 	const char		*end;
 	unsigned int	i;
 
-	if (!(tab = malloc(sizeof(char *) * (get_elem_count(s, c) + 1))))
+	if (!s || !(tab = malloc(sizeof(char *) * (get_elem_count(s, c) + 1))))
 		return (NULL);
 	i = 0;
 	while (*s)
