@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/02 13:11:17 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/14 00:21:37 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/14 05:18:34 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	j = 0;
 	while (dst[i] && i < dstsize)
 		i++;
-	while ((src[j]) && ((i + j + 1) < dstsize))
+	while (src[j] && (i + j + 1) < dstsize)
 	{
 		dst[i + j] = src[j];
 		j++;
