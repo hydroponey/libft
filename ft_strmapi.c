@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/02 23:38:49 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/15 12:45:23 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/15 12:48:23 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	char			*result;
-	unsigned int	len;
 	unsigned int	i;
 
 	if (!s || !f || !(result = ft_strdup(s)))
