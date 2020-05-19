@@ -6,11 +6,12 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 22:20:33 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/14 18:16:20 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/19 19:21:48 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {

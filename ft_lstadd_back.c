@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 17:44:29 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/06 23:38:28 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/05/19 19:25:41 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,11 @@
 
 void	ft_lstadd_back(t_list **alst, t_list *new)
 {
-	unsigned int	i;
-
-	if (alst[0] == NULL)
+	if (new)
 	{
-		alst[0] = new;
-		return ;
+		if (*alst)
+			ft_lstlast(*alst)->next = new;
+		else
+			*alst = new;
 	}
-	i = 0;
-	while (alst[i]->next != NULL)
-		i++;
-	alst[i]->next = new;
 }
