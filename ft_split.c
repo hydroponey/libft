@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/14 04:06:50 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/19 18:47:37 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/08/25 12:42:04 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,12 @@ static char				*ft_strndup(const char *str, unsigned int n)
 
 static void				ft_freetab(char **tab)
 {
+	char **start;
+
+	start = tab;
 	while (*tab)
 		free(*tab++);
-	free(tab);
+	free(start);
 }
 
 static int				get_elem_count(const char *s, char c)
@@ -66,17 +69,17 @@ char					**ft_split(char const *s, char c)
 {
 	char			**tab;
 	const char		*end;
-	unsigned int	i;
+	size_t			len;
 
 	if (!s || !(tab = malloc(sizeof(char *) * (get_elem_count(s, c) + 1))))
 		return (NULL);
-	i = 0;
 	while (*s)
 	{
 		if (*s != c)
 		{
 			end = ft_strchr(s, c);
-			if (!(tab[i++] = ft_strndup(s, (!end) ? ft_strlen(s) : (end - s))))
+			len = (!end) ? ft_strlen(s) : (size_t)(end - s);
+			if (!(*tab++ = ft_strndup(s, len)))
 			{
 				ft_freetab(tab);
 				return (NULL);
@@ -87,6 +90,6 @@ char					**ft_split(char const *s, char c)
 		}
 		s++;
 	}
-	tab[i] = NULL;
+	*tab = NULL;
 	return (tab);
 }
