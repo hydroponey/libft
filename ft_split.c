@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/14 04:06:50 by asimoes           #+#    #+#             */
-/*   Updated: 2020/08/25 12:48:18 by asimoes          ###   ########.fr       */
+/*   Updated: 2020/08/25 12:55:57 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,19 @@ static int				get_elem_count(const char *s, char c)
 	return (count);
 }
 
+static char				*copy_str(char *s, char c)
+{
+	const char		*end;
+	size_t			len;
+
+	end = ft_strchr(s, c);
+	len = (!end) ? ft_strlen(s) : (size_t)(end - s);
+	return (ft_strndup(s, len));
+}
+
 char					**ft_split(char const *s, char c)
 {
 	char			**tab;
-	const char		*end;
-	size_t			len;
 	unsigned int	i;
 
 	if (!s || !(tab = malloc(sizeof(char *) * (get_elem_count(s, c) + 1))))
@@ -79,9 +87,7 @@ char					**ft_split(char const *s, char c)
 	{
 		if (*s != c)
 		{
-			end = ft_strchr(s, c);
-			len = (!end) ? ft_strlen(s) : (size_t)(end - s);
-			if (!(tab[i++] = ft_strndup(s, len)))
+			if (!(tab[i++] = copy_str(s, c)))
 			{
 				ft_freetab(tab);
 				return (NULL);
