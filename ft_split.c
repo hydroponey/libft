@@ -6,13 +6,13 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/14 04:06:50 by asimoes           #+#    #+#             */
-/*   Updated: 2020/08/25 12:59:15 by asimoes          ###   ########.fr       */
+/*   Updated: 2021/12/19 16:35:24 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static char				*ft_strndup(const char *str, unsigned int n)
+static char	*ft_strndup(const char *str, unsigned int n)
 {
 	unsigned int	len;
 	unsigned int	max;
@@ -20,8 +20,12 @@ static char				*ft_strndup(const char *str, unsigned int n)
 	unsigned int	i;
 
 	len = ft_strlen(str);
-	max = (len < n) ? len : n;
-	if (!(copy = (char *)malloc(sizeof(char) * (max + 1))))
+	if (len < n)
+		max = len;
+	else
+		max = n;
+	copy = (char *)malloc(sizeof(char) * (max + 1));
+	if (!copy)
 		return (NULL);
 	i = 0;
 	while (i < max)
@@ -33,9 +37,9 @@ static char				*ft_strndup(const char *str, unsigned int n)
 	return (copy);
 }
 
-static void				ft_freetab(char **tab)
+static void	ft_freetab(char **tab)
 {
-	char **start;
+	char	**start;
 
 	start = tab;
 	while (*tab)
@@ -43,7 +47,7 @@ static void				ft_freetab(char **tab)
 	free(start);
 }
 
-static int				get_elem_count(const char *s, char c)
+static int	get_elem_count(const char *s, char c)
 {
 	int			count;
 	const char	*end;
@@ -65,21 +69,25 @@ static int				get_elem_count(const char *s, char c)
 	return (count);
 }
 
-static char				*copy_str(const char *s, const char *end)
+static char	*copy_str(const char *s, const char *end)
 {
 	size_t			len;
 
-	len = (!end) ? ft_strlen(s) : (size_t)(end - s);
+	if (!end)
+		len = ft_strlen(s);
+	else
+		len = (size_t)(end - s);
 	return (ft_strndup(s, len));
 }
 
-char					**ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char			**tab;
 	const char		*end;
 	unsigned int	i;
 
-	if (!s || !(tab = malloc(sizeof(char *) * (get_elem_count(s, c) + 1))))
+	tab = malloc(sizeof(char *) * (get_elem_count(s, c) + 1));
+	if (!s || !tab)
 		return (NULL);
 	i = 0;
 	while (*s)
@@ -87,11 +95,13 @@ char					**ft_split(char const *s, char c)
 		if (*s != c)
 		{
 			end = ft_strchr(s, c);
-			if (!(tab[i++] = copy_str(s, end)))
+			tab[i] = copy_str(s, end);
+			if (!tab[i])
 			{
 				ft_freetab(tab);
 				return (NULL);
 			}
+			i++;
 			if (!end || c == '\0')
 				break ;
 			s = end;

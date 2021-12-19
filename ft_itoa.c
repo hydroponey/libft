@@ -6,48 +6,57 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/03 16:18:24 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/10 20:43:35 by asimoes          ###   ########.fr       */
+/*   Updated: 2021/12/19 20:56:58 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void		leftcat(char *s, char c)
+static short int	int_len(int n)
 {
-	int	len;
+	int		len;
+	long	num;
 
-	len = ft_strlen(s);
-	while (len)
+	len = 0;
+	num = n;
+	if (n == 0)
+		return (1);
+	if (n < 0)
 	{
-		s[len] = s[len - 1];
-		len--;
+		num *= -1;
+		len++;
 	}
-	s[0] = c;
+	while (num > 0)
+	{
+		num /= 10;
+		len++;
+	}
+	return (len);
 }
 
-char			*ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-	char			*nbr;
-	long			long_nb;
+	char		*str;
+	long		num;
+	short int	len;
 
-	if (!(nbr = malloc(sizeof(char) * 12)))
+	len = int_len(n);
+	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!str)
 		return (NULL);
-	ft_memset(nbr, 0, 12);
-	long_nb = n;
-	if (long_nb == 0)
+	str[len--] = '\0';
+	num = n;
+	if (num == 0)
+		str[0] = '0';
+	if (num < 0)
 	{
-		nbr[0] = '0';
-		nbr[1] = '\0';
-		return (nbr);
+		str[0] = '-';
+		num *= -1;
 	}
-	if (n < 0)
-		long_nb *= -1;
-	while (long_nb > 0)
+	while (num > 0)
 	{
-		leftcat(nbr, (char)(long_nb % 10) + '0');
-		long_nb /= 10;
+		str[len--] = (char)((num % 10) + '0');
+		num = num / 10;
 	}
-	if (n < 0)
-		leftcat(nbr, '-');
-	return (nbr);
+	return (str);
 }

@@ -6,13 +6,13 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 16:21:10 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/14 11:15:33 by asimoes          ###   ########.fr       */
+/*   Updated: 2021/12/19 16:21:12 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int				is_in_set(char c, char const *set)
+static int	is_in_set(char c, char const *set)
 {
 	while (*set)
 	{
@@ -23,7 +23,18 @@ static int				is_in_set(char c, char const *set)
 	return (0);
 }
 
-char					*ft_strtrim(char const *s1, char const *set)
+static char	*empty_str(void)
+{
+	char	*trimmed;
+
+	trimmed = (char *)malloc(sizeof(char) * 1);
+	if (!trimmed)
+		return (NULL);
+	trimmed[0] = '\0';
+	return (trimmed);
+}
+
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	char			*trimmed;
 	const char		*end;
@@ -32,20 +43,19 @@ char					*ft_strtrim(char const *s1, char const *set)
 	if (!s1 || !set)
 		return (NULL);
 	if (s1[0] == '\0')
-	{
-		if (!(trimmed = (char *)malloc(sizeof(char) * 1)))
-			return (NULL);
-		trimmed[0] = '\0';
-		return (trimmed);
-	}
+		return (empty_str());
 	while (*s1 != '\0' && is_in_set(*s1, set))
 		s1++;
 	len = ft_strlen(s1);
 	end = s1 + len;
 	while (len > 0 && is_in_set(s1[len-- - 1], set))
 		end = s1 + len;
-	len = (end < s1) ? 1 : end - s1 + 1;
-	if (!(trimmed = (char *)malloc(sizeof(char) * len)))
+	if (end < s1)
+		len = 1;
+	else
+		len = end - s1 + 1;
+	trimmed = (char *)malloc(sizeof(char) * len);
+	if (!trimmed)
 		return (NULL);
 	ft_strlcpy(trimmed, s1, len);
 	return (trimmed);

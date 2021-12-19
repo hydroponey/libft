@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/02 13:06:51 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/04 22:05:54 by asimoes          ###   ########.fr       */
+/*   Updated: 2021/12/19 16:41:49 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list *list;
+	t_list	*list;
 
-	if (!(list = malloc(sizeof(struct s_list))))
+	list = malloc(sizeof(struct s_list));
+	if (!list)
 		return (NULL);
 	list->content = content;
 	list->next = NULL;

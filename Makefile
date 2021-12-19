@@ -6,7 +6,7 @@
 #    By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/07 20:29:22 by asimoes           #+#    #+#              #
-#    Updated: 2020/05/10 05:04:23 by asimoes          ###   ########.fr        #
+#    Updated: 2021/12/19 16:27:49 by asimoes          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ SRCS		=	ft_atoi.c\
 				ft_split.c\
 				ft_strchr.c\
 				ft_strdup.c\
+				ft_striteri.c\
 				ft_strjoin.c\
 				ft_strlcat.c\
 				ft_strlcpy.c\

@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 14:41:48 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/07 21:15:57 by asimoes          ###   ########.fr       */
+/*   Updated: 2021/12/19 16:35:48 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memset(void *b, int c, size_t n)
 {
-	char *p;
+	char	*p;
 
 	p = (char *)b;
 	while (n--)

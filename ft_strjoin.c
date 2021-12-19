@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 03:57:21 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/07 20:56:36 by asimoes          ###   ########.fr       */
+/*   Updated: 2021/12/19 16:30:39 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!s1 || !s2)
 		return (NULL);
 	len = ft_strlen(s1) + ft_strlen(s2);
-	if (!(joined = malloc(sizeof(char) * (len + 1))))
+	joined = malloc(sizeof(char) * (len + 1));
+	if (!joined)
 		return (NULL);
 	i = 0;
 	while (*s1)

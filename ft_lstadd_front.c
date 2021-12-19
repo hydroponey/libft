@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 17:30:41 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/06 23:38:32 by asimoes          ###   ########.fr       */
+/*   Updated: 2021/12/19 16:40:46 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstadd_front(t_list **alst, t_list *new)
 {
-	t_list *next;
+	t_list	*next;
 
 	if (!alst || !new)
 		return ;

@@ -6,11 +6,11 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 13:24:27 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/07 21:32:26 by asimoes          ###   ########.fr       */
+/*   Updated: 2021/12/19 16:39:14 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	unsigned int	i;
 	int				number;

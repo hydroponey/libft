@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 22:25:08 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/07 21:12:18 by asimoes          ###   ########.fr       */
+/*   Updated: 2021/12/19 16:40:55 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	t_list *cur;
+	t_list	*cur;
 
 	if (!lst)
 		return ;

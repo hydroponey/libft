@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 19:42:14 by asimoes           #+#    #+#             */
-/*   Updated: 2020/05/07 21:10:39 by asimoes          ###   ########.fr       */
+/*   Updated: 2021/12/19 16:30:17 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlen(const char *s)
 {
-	size_t c;
+	size_t	c;
 
 	c = 0;
 	while (s[c])
