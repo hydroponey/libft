@@ -6,7 +6,7 @@
 /*   By: asimoes <asimoes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/29 03:11:27 by asimoes           #+#    #+#             */
-/*   Updated: 2021/12/19 22:05:51 by asimoes          ###   ########.fr       */
+/*   Updated: 2021/12/20 14:06:02 by asimoes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,12 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	if (ft_strlen(s) <= start)
 	{
-		sub = (char *)malloc(sizeof(char) * 1);
-		if (!sub)
-			return (NULL);
-		sub[0] = '\0';
-		return (sub);
+		return (ft_strdup(""));
 	}
 	else
 	{
+		if (len > (ft_strlen(s) - start))
+			len = (ft_strlen(s) - start);
 		sub = (char *)malloc(sizeof(char) * (len + 1));
 		if (!sub)
 			return (NULL);
